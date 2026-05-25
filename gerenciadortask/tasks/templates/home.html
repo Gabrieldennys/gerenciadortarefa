@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background: #0b1120;
+            color: white;
+            min-height: 100vh;
+            padding: 60px;
+        }
+
+        .welcome{
+            margin-bottom: 60px;
+        }
+
+        .welcome h1{
+            font-size: 4rem;
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+
+        .welcome p{
+            font-size: 1.4rem;
+            color: #cbd5e1;
+        }
+
+        .cards{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card{
+            background: #111827;
+            padding: 40px;
+            border-radius: 20px;
+            transition: 0.3s;
+            cursor: pointer;
+
+            text-decoration: none;
+            color: white;
+        }
+
+        .card:hover{
+            transform: translateY(-8px);
+            background: #1e293b;
+        }
+
+        .card h2{
+            font-size: 2rem;
+            color: #93c5fd;
+            margin-bottom: 20px;
+        }
+
+        .card p{
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .btn{
+            display: inline-block;
+            margin-top: 50px;
+            padding: 18px 35px;
+            background: #dc2626;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .btn:hover{
+            background: #ef4444;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="welcome">
+        <h1>Bem-vindo, {{ user.username }} 👋</h1>
+        <p>Organize suas tarefas diárias de forma simples e eficiente.</p>
+    </div>
+
+    <div class="cards">
+
+        <!-- ADICIONAR NOVAS TAREFAS -->
+        <a href="{% url 'hoje' %}" class="card">
+            <h2>Adicionar novas tarefas</h2>
+            <p>Adicione suas tarefas semanais.</p>
+        </a>
+
+        <!-- TAREFAS PENDENTES -->
+        <a href="{% url 'pendentes' %}" class="card">
+            <h2>Tarefas pendentes</h2>
+            <p>Acompanhe suas atividades.</p>
+        </a>
+
+        <!-- TAREFAS REALIZADAS -->
+        <a href="{% url 'realizadas' %}" class="card">
+            <h2>Tarefas realizadas</h2>
+            <p>Veja o que você concluiu.</p>
+        </a>
+
+    </div>
+
+    <!-- BOTÃO SAIR -->
+    <a href="{% url 'logout' %}" class="btn">
+        Sair
+    </a>
+
+</body>
+</html>
+
+

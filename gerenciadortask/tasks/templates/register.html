@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0b0f19; /* Preto azulado */
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #111827;
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 360px;
+            box-sizing: border-box;
+            border: 1px solid #1f2937;
+        }
+
+        h1 {
+            margin: 0 0 2rem 0;
+            font-size: 1.75rem;
+            font-weight: 600;
+            text-align: center;
+            color: #38bdf8;
+        }
+
+        form p {
+            margin: 0 0 1.2rem 0;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        form input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #374151;
+            border-radius: 6px;
+            background-color: #1f2937;
+            color: #ffffff;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        form input:focus {
+            border-color: #38bdf8;
+        }
+
+        /* Pequenos textos de ajuda que o UserCreationForm gera (requisitos de senha) */
+        form .helptext {
+            display: block;
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #38bdf8;
+            color: #0b0f19;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .link-login {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .link-login a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .link-login a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cadastro</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p class="link-login">
+            Já possui conta?
+            <a href="/login/">Login</a>
+        </p>
+    </div>
+
+</body>
+</html>
